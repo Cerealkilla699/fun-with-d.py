@@ -106,7 +106,7 @@ class send_answers():
             color = inter.user.color)
         for k, v in ansdict.items():
             embed.add_field(name=k, value=v, inline = False)
-        embed.set_author(name=inter.user.name, icon_url=inter.user.display_avatar.url, url=f'http://discord.com/users/{inter.user.id}')
+        embed.set_author(name=inter.user.display_name, icon_url=inter.user.display_avatar.url, url=f'http://discord.com/users/{inter.user.id}')
         channel = bot.get_channel(CHANNEL_ID_HERE)
         await channel.send(embed=embed)
 
