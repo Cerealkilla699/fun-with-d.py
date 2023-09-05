@@ -107,7 +107,7 @@ class send_answers():
         for k, v in ansdict.items():
             embed.add_field(name=k, value=v, inline = False)
         embed.set_author(name=inter.user.name, icon_url=inter.user.display_avatar.url, url=f'http://discord.com/users/{inter.user.id}')
-        channel = bot.get_channel(681434576572383233)
+        channel = bot.get_channel(CHANNEL_ID_HERE)
         await channel.send(embed=embed)
 
 bot.run(token = TOKEN)
