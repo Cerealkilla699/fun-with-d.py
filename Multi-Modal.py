@@ -17,8 +17,7 @@ async def setup_hook():
 async def test(interaction: discord.Interaction):
     embed = discord.Embed(
         title= 'Please fill out and submit both forms',
-        description= 'This application will be sent somewhere'
-        )
+        description= 'This application will be sent somewhere')
     await interaction.response.send_message(embed = embed, view = testview(interaction))
 
 class testview(discord.ui.View):
@@ -54,22 +53,16 @@ class testmodal(discord.ui.Modal, title = 'Test 1'):
         super().__init__()
         self.ansdict = ansdict
         self.inter = og_inter
-
     q1 = discord.ui.TextInput(
-        label = 'This is question 1'
-    )
+        label = 'This is question 1')
     q2 = discord.ui.TextInput(
-        label = 'This is question 2'
-    )
+        label = 'This is question 2')
     q3 = discord.ui.TextInput(
-        label = 'This is question 3'
-    )
+        label = 'This is question 3')
     q4 = discord.ui.TextInput(
-        label = 'This is question 4'
-    )
+        label = 'This is question 4')
     q5 = discord.ui.TextInput(
-        label = 'This is question 5'
-    )
+        label = 'This is question 5')
 
     async def on_submit(self, interaction:discord.Interaction):
         await interaction.response.send_message(content= 'Part 1 has been submitted', ephemeral= True)
@@ -78,8 +71,7 @@ class testmodal(discord.ui.Modal, title = 'Test 1'):
             self.q2.label : self.q2.value,
             self.q3.label : self.q3.value,
             self.q4.label : self.q4.value,
-            self.q5.label : self.q5.value
-        })
+            self.q5.label : self.q5.value})
         if len(self.ansdict) == 6:
             await send_answers.sendit(self.ansdict, self.inter)
 
@@ -89,8 +81,8 @@ class testmodal2(discord.ui.Modal, title = 'Test 1'):
         self.ansdict = ansdict
         self.inter = og_inter
     q6 = discord.ui.TextInput(
-        label = 'This is question 6'
-    )
+        label = 'This is question 6')
+    
     async def on_submit(self, interaction:discord.Interaction):
         await interaction.response.send_message(content= 'Part 2 has been submitted', ephemeral= True)
         self.ansdict.update({
